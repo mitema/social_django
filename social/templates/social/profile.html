@@ -1,0 +1,16 @@
+{% extends "social/base.html" %}
+
+{% block content %}
+<div class='main'>
+{% if text %}
+<h3>Your Profile</h3>
+{{ text }} <br style='clear:left;'><br>
+{% endif %}
+<form method='POST' action='/social/profile/' enctype='multipart/form-data'>
+   	{% csrf_token %}
+	<h3>Enter or edit your details and/or upload an image</h3>
+	<textarea name='text' cols='50' rows='3'>{{ text }}</textarea><br>
+	<input type='submit' value='Save Profile'>
+</form>
+</div>
+{% endblock %}
